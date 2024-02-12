@@ -1,9 +1,12 @@
+import Hero from "./Hero";
+
 const Landing = () => {
   return (
-    <div>
-      <div className="h-[100vh] bg-blue-200"></div>
-      <div className="h-[100vh] bg-red-200"></div>
-    </div>
+    <>
+      <div className="">
+        <Hero />
+      </div>
+    </>
   );
 };
 

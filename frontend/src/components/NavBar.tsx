@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <header className="sticky top-0 bg-neutral-800 items-center">
-      <nav className="flex justify-between items-center w-[90%] m-auto">
+      <nav className="flex justify-between items-center md:px-[6rem] px-[2rem]">
         <div className="z-50 bg-neutral-800 w-full h-full py-4">
           <GiSoccerBall color="lightgrey" className="w-16 h-16" />
         </div>
@@ -43,7 +43,7 @@ const NavBar = () => {
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
               <li>
-                <a href={link.link} className="">
+                <a href={link.link} className="uppercase">
                   {link.name}
                 </a>
               </li>
