@@ -17,28 +17,28 @@ const NavLinks: Array<NavInterface> = [
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navAnimation, setNavAnimation] = useState<string>(
-    "translate-y-[-100%]"
+    "translate-y-[-100%] opacity-0"
   );
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
     if (navOpen == true) {
-      setNavAnimation("translate-y-[-100%]");
+      setNavAnimation("translate-y-[-100%] ease-out duration-300 opacity-0");
     } else {
-      setNavAnimation("translate-y-[196px]");
+      setNavAnimation("translate-y-[196px] ease-in duration-300 opacity-100");
     }
   };
 
   return (
-    <header className="sticky top-0 bg-neutral-800 py-4 items-center">
+    <header className="sticky top-0 bg-neutral-800 items-center">
       <nav className="flex justify-between items-center w-[90%] m-auto">
-        <div className="z-50">
+        <div className="z-50 bg-neutral-800 w-full h-full py-4">
           <GiSoccerBall color="lightgrey" className="w-16 h-16" />
         </div>
         <div
           className={`md:static absolute bg-neutral-800 w-full md:min-h-fit min-h-[60vh] md:w-auto left-0 flex 
-          md:justify-between items-center md:translate-y-[0] md:px-0 px-10 ${navAnimation} 
-          ease-in duration-300 text-gray-200`}
+          md:justify-between items-center md:translate-y-[0%] md:px-0 px-10 ${navAnimation} 
+           text-gray-200 md:opacity-100`}
         >
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
