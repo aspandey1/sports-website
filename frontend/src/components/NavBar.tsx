@@ -9,9 +9,9 @@ interface NavInterface {
 }
 
 const NavLinks: Array<NavInterface> = [
-  { name: "Players", link: "/players" },
-  { name: "Coaches", link: "/coaches" },
-  { name: "Teams", link: "/teams" },
+  { name: "Champions League", link: "/players" },
+  { name: "English Premier League", link: "/coaches" },
+  { name: "Bundesliga", link: "/teams" },
 ];
 
 const NavBar = () => {
@@ -43,7 +43,7 @@ const NavBar = () => {
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
               <li>
-                <a href={link.link} className="uppercase">
+                <a href={link.link} className="uppercase whitespace-nowrap">
                   {link.name}
                 </a>
               </li>
