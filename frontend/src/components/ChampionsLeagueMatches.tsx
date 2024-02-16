@@ -29,9 +29,9 @@ const ChampionsLeagueMatches = () => {
   const [champData, setChampData] = useState(start);
 
   useEffect(() => {
-    getChampLeagueData().then((data) => {
-      setChampData(data);
-    });
+    // getChampLeagueData().then((data) => {
+    //   setChampData(data);
+    // });
   }, []);
 
   return (
@@ -39,8 +39,11 @@ const ChampionsLeagueMatches = () => {
       <div className="text-center">
         <h1 className="font-bold">Upcoming Matches</h1>
         <ul className="py-10">
-          {champData.matches.map((e) => (
-            <li className="bg-stone-400 py-2 my-4 rounded-md text-neutral-800 font-bold">
+          {champData.matches.map((e, index) => (
+            <li
+              key={index}
+              className="bg-stone-400 py-2 my-4 rounded-md text-neutral-800 font-bold"
+            >
               {e.awayTeamName + " vs " + e.homeTeamName}
             </li>
           ))}
