@@ -1,4 +1,4 @@
-import Landing from "./components/Landing";
+import Landing from "./components/LandingPage";
 import NavBar from "./components/NavBar";
 
 const App = () => {
