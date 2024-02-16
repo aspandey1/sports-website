@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GiSoccerBall } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 interface NavInterface {
   name: string;
@@ -9,9 +10,9 @@ interface NavInterface {
 }
 
 const NavLinks: Array<NavInterface> = [
-  { name: "Players", link: "/players" },
-  { name: "Coaches", link: "/coaches" },
-  { name: "Teams", link: "/teams" },
+  { name: "Champions League", link: "/championsleague" },
+  { name: "English Premier League", link: "/coaches" },
+  { name: "Bundesliga", link: "/teams" },
 ];
 
 const NavBar = () => {
@@ -42,10 +43,10 @@ const NavBar = () => {
         >
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
-              <li>
-                <a href={link.link} className="uppercase">
+              <li key={link.name}>
+                <Link to={link.link} className="uppercase whitespace-nowrap">
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

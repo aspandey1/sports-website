@@ -1,11 +1,11 @@
+import Features from "./Features";
 import Hero from "./Hero";
 
 const Landing = () => {
   return (
     <>
-      <div className="">
-        <Hero />
-      </div>
+      <Hero />
+      <Features />
     </>
   );
 };
