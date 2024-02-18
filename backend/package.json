@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@azure/functions": "^4.0.0",
-    "axios": "^1.6.7"
+    "axios": "^1.6.7",
+    "moment-timezone": "^0.5.45"
   },
   "main": "src/functions/*.js"
 }

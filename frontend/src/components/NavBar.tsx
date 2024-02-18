@@ -31,11 +31,11 @@ const NavBar = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-neutral-800 items-center">
+    <header className="bg-neutral-800 items-center">
       <nav className="flex justify-between items-center md:px-[6rem] px-[2rem]">
-        <div className="z-50 bg-neutral-800 w-full h-full py-4">
+        <Link to={"/"} className="z-50 bg-neutral-800 w-full h-full py-4">
           <GiSoccerBall color="lightgrey" className="w-16 h-16" />
-        </div>
+        </Link>
         <div
           className={`md:static absolute bg-neutral-800 w-full md:min-h-fit min-h-[60vh] md:w-auto left-0 flex 
           md:justify-between items-center md:translate-y-[0%] md:px-0 px-10 ${navAnimation} 
