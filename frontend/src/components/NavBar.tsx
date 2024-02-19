@@ -11,7 +11,7 @@ interface NavInterface {
 
 const NavLinks: Array<NavInterface> = [
   { name: "Champions League", link: "/championsleague" },
-  { name: "English Premier League", link: "/coaches" },
+  { name: "Premier League", link: "/coaches" },
   { name: "Bundesliga", link: "/teams" },
 ];
 
@@ -33,7 +33,7 @@ const NavBar = () => {
   return (
     <header className="bg-neutral-800 items-center">
       <nav className="flex justify-between items-center md:px-[6rem] px-[2rem]">
-        <Link to={"/"} className="z-50 bg-neutral-800 w-full h-full py-4">
+        <Link to={"/"} className="z-50 bg-neutral-800 py-4">
           <GiSoccerBall color="lightgrey" className="w-16 h-16" />
         </Link>
         <div
