@@ -47,9 +47,9 @@ const ChampionsLeagueMatches = () => {
   };
 
   useEffect(() => {
-    getChampLeagueData().then((data) => {
-      setChampData(data);
-    });
+    // getChampLeagueData().then((data) => {
+    //   setChampData(data);
+    // });
   }, []);
 
   return (
