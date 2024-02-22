@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { getChampLeagueData } from "../services/requests/ChampLeague";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import MatchesLoader from "./MatchesLoader";
 
@@ -14,28 +12,11 @@ interface matchesItems {
   scheduledTime: string;
 }
 
-interface matchesList {
+interface data {
   matches: matchesItems[];
 }
 
-const start: matchesList = {
-  matches: [
-    {
-      homeTeamName: "null",
-      homeTeamCrest: "null",
-      homeTeamAbv: "NAN",
-      awayTeamName: "null",
-      awayTeamCrest: "null",
-      awayTeamAbv: "NAN",
-      scheduledDate: "MM/DD",
-      scheduledTime: "00:00 AM",
-    },
-  ],
-};
-
-const ChampionsLeagueMatches = () => {
-  const [champData, setChampData] = useState(start);
-
+const Matches: React.FC<data> = (props: data) => {
   const slideLeft = () => {
     const slider: HTMLElement = document.getElementById("slider")!;
     slider.scrollLeft = slider.scrollLeft - 500;
@@ -45,12 +26,6 @@ const ChampionsLeagueMatches = () => {
     const slider: HTMLElement = document.getElementById("slider")!;
     slider.scrollLeft = slider.scrollLeft + 500;
   };
-
-  useEffect(() => {
-    // getChampLeagueData().then((data) => {
-    //   setChampData(data);
-    // });
-  }, []);
 
   return (
     <div className="bg-slate-300 text-gray-200 py-2">
@@ -65,7 +40,7 @@ const ChampionsLeagueMatches = () => {
             id="slider"
             className="flex w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth no-scrollbar"
           >
-            {champData === start ? (
+            {props.matches[0].homeTeamAbv == "null" ? (
               <div className="flex">
                 <MatchesLoader />
                 <MatchesLoader />
@@ -82,7 +57,7 @@ const ChampionsLeagueMatches = () => {
               </div>
             ) : (
               <div className="flex">
-                {champData.matches.map((e, index) => (
+                {props.matches.map((e, index) => (
                   <li
                     key={index}
                     className="bg-neutral-800 text-gray-400 font-bold mr-5 border-gray-500 border-2 rounded"
@@ -127,4 +102,4 @@ const ChampionsLeagueMatches = () => {
   );
 };
 
-export default ChampionsLeagueMatches;
+export default Matches;

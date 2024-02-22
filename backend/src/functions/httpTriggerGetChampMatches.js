@@ -5,7 +5,6 @@ app.http("httpTrigger1", {
   methods: ["GET", "POST"],
   authLevel: "anonymous",
   handler: async (request, context) => {
-    context.log(`Http function processed request for url "${request.url}"`);
     try {
       const footballAPIResponse = await axios.get(
         "https://api.football-data.org/v4/competitions/CL/matches?status=SCHEDULED",
@@ -54,8 +53,27 @@ app.http("httpTrigger1", {
         },
       };
     } catch (error) {
-      context.error(error);
-      return { body: "Request has failed", status: 400 };
+      return {
+        body: JSON.stringify({
+          matches: [
+            {
+              homeTeamName: "null",
+              homeTeamCrest: "null",
+              homeTeamAbv: "NAN",
+              awayTeamName: "null",
+              awayTeamCrest: "null",
+              awayTeamAbv: "NAN",
+              scheduledDate: "MM/DD",
+              scheduledTime: "00:00 AM",
+            },
+          ],
+        }),
+
+        status: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      };
     }
   },
 });

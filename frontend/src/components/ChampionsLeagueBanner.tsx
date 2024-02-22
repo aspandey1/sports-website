@@ -41,28 +41,31 @@ const topStories: Array<news> = [
 
 const ChampionsLeagueBanner = () => {
   return (
-    <div className="flex px-[2rem] md:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-2 pb-10">
-      <div className="h-full w-[70%]">
+    <div className="lg:flex px-[2rem] md:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-2 pb-10">
+      <div className="h-full lg:w-[70%]">
         <img src={clImage1} alt="" />
       </div>
-      <div className="w-[30%] pl-5 text-neutral-800">
+      <div className="lg:w-[30%] lg:pl-5 pt-10 lg:pt-0 text-neutral-800">
         <div className="h-[9%]">
-          <h1 className="font-bold 2xl:text-4xl text-2xl">TOP STORIES</h1>
+          <h1 className="text-center lg:text-left font-bold 2xl:text-4xl lg:text-2xl text-2xl lg:pb-0 pb-10">
+            TOP STORIES
+          </h1>
         </div>
         <div className="h-[1%]">
           <div className="2xl:h-[6px] h-[3px] w-full bg-neutral-800"></div>
         </div>
 
-        {topStories.map((element) => (
+        {topStories.map((element, index) => (
           <a
+            key={index}
             href={element.link}
             target="_blank"
-            className="flex items-center border-b-2 border-black hover:brightness-[85%] hover:cursor-pointer hover:bg-slate-200 h-[18%] w-full"
+            className="flex items-center border-b-2 lg:border-r-0 border-r-2 lg:border-l-0 border-l-2 border-black hover:brightness-[85%] hover:cursor-pointer hover:bg-slate-200 h-[18%] w-full"
           >
-            <div className="h-inherit w-[40%] mr-4">
-              <img src={element.image} alt="" className="" />
+            <div className="h-inherit w-[40%] mr-4 ">
+              <img src={element.image} alt="" className="py-2" />
             </div>
-            <div className="font-bold 2xl:text-xl text-[12px] w-[60%]">
+            <div className="font-bold 2xl:text-xl lg:text-[12px] text-xl w-[60%] pr-2 lg:leading-3">
               {element.title}
             </div>
           </a>
