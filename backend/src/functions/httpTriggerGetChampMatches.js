@@ -5,7 +5,6 @@ app.http("httpTrigger1", {
   methods: ["GET", "POST"],
   authLevel: "anonymous",
   handler: async (request, context) => {
-    context.log(`Http function processed request for url "${request.url}"`);
     try {
       const footballAPIResponse = await axios.get(
         "https://api.football-data.org/v4/competitions/CL/matches?status=SCHEDULED",
@@ -17,15 +16,31 @@ app.http("httpTrigger1", {
         }
       );
       let upcoming = { matches: [] };
+      const timezone = request.query.get("local");
 
       await footballAPIResponse.data.matches.forEach((element) => {
         if (element.homeTeam.name != null || element.homeTeam.name != null) {
+          const utc = new Date(element.utcDate);
+          const currTime = utc.toLocaleDateString("en-us", {
+            day: "2-digit",
+            month: "2-digit",
+            hour12: true,
+            hour: "2-digit",
+            minute: "2-digit",
+            timeZone: timezone,
+          });
+
+          const time = currTime.split(",");
+
           upcoming.matches.push({
             homeTeamName: element.homeTeam.name,
             homeTeamCrest: element.homeTeam.crest,
+            homeTeamAbv: element.homeTeam.tla,
             awayTeamName: element.awayTeam.name,
             awayTeamCrest: element.awayTeam.crest,
-            scheduled: element.utcDate,
+            awayTeamAbv: element.awayTeam.tla,
+            scheduledDate: time[0],
+            scheduledTime: time[1],
           });
         }
       });
@@ -38,8 +53,27 @@ app.http("httpTrigger1", {
         },
       };
     } catch (error) {
-      context.error(error);
-      return { body: "Request has failed", status: 400 };
+      return {
+        body: JSON.stringify({
+          matches: [
+            {
+              homeTeamName: "null",
+              homeTeamCrest: "null",
+              homeTeamAbv: "NAN",
+              awayTeamName: "null",
+              awayTeamCrest: "null",
+              awayTeamAbv: "NAN",
+              scheduledDate: "MM/DD",
+              scheduledTime: "00:00 AM",
+            },
+          ],
+        }),
+
+        status: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      };
     }
   },
 });
