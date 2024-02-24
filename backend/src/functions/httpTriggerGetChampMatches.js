@@ -1,7 +1,7 @@
 const { app } = require("@azure/functions");
 const axios = require("axios");
 
-app.http("httpTrigger1", {
+app.http("httpTriggerGetChampMatches", {
   methods: ["GET", "POST"],
   authLevel: "anonymous",
   handler: async (request, context) => {

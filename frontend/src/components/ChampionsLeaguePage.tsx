@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { getChampLeagueData } from "../services/requests/ChampLeague";
+import {
+  getChampLeagueData,
+  getChampGoalData,
+} from "../services/requests/ChampLeague";
 
 import NavBar from "./NavBar";
 import Matches from "./Matches";
 import ChampionsLeagueAbout from "./ChampionsLeagueAbout";
 import ChampionsLeagueBanner from "./ChampionsLeagueBanner";
 import PageTitle from "./PageTitle";
+import Stats from "./Stats";
 
-let tempValue = [
+const tempMatchValue = [
   {
     homeTeamName: "null",
     homeTeamCrest: "null",
@@ -20,25 +24,47 @@ let tempValue = [
   },
 ];
 
+const tempGoalValue = [
+  {
+    name: "null null",
+    teamCrest: "null",
+    gamesPlayed: 0,
+    goals: 0,
+    assists: 0,
+  },
+];
+
 const ChampionsLeague = () => {
-  const [champData, setChampData] = useState(tempValue);
+  const [champMatchData, setChampMatchData] = useState(tempMatchValue);
+  const [champGoalData, setChampGoalData] = useState(tempGoalValue);
 
   useEffect(() => {
     getChampLeagueData()
       .then((data) => {
-        setChampData(data.matches);
+        setChampMatchData(data.matches);
       })
       .catch((error) => {
-        setChampData(error.response.data.matches);
+        setChampMatchData(error.response.data.matches);
+      });
+  }, []);
+
+  useEffect(() => {
+    getChampGoalData()
+      .then((data) => {
+        setChampGoalData(data.scorers);
+      })
+      .catch((error) => {
+        setChampGoalData(error.response.data.matches);
       });
   }, []);
 
   return (
     <>
       <NavBar />
-      <Matches matches={champData} />
+      <Matches matches={champMatchData} />
       <PageTitle title="CHAMPIONS LEAGUE" />
       <ChampionsLeagueBanner />
+      <Stats scorers={champGoalData} />
       <ChampionsLeagueAbout />
     </>
   );

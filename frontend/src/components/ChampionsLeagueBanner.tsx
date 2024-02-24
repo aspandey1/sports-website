@@ -41,7 +41,7 @@ const topStories: Array<news> = [
 
 const ChampionsLeagueBanner = () => {
   return (
-    <div className="lg:flex px-[2rem] md:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-2 pb-10">
+    <div className="lg:flex px-[2rem] lg:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-2 pb-10">
       <div className="h-full lg:w-[70%]">
         <img src={clImage1} alt="" />
       </div>
