@@ -67,7 +67,9 @@ const Stats: React.FC<data> = (props: data) => {
           </div>
         </div>
       ) : (
-        <div>No data</div>
+        <div className="mt-6 text-lg md:text-xl 2xl:text-3xl lg:text-2xl font-bold">
+          Stats are temporary unavailable
+        </div>
       )}
     </div>
   );

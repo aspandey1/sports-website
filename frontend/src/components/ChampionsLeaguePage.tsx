@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   getChampLeagueData,
   getChampGoalData,
@@ -10,6 +10,7 @@ import ChampionsLeagueAbout from "./ChampionsLeagueAbout";
 import ChampionsLeagueBanner from "./ChampionsLeagueBanner";
 import PageTitle from "./PageTitle";
 import Stats from "./Stats";
+import PageNav from "./PageNav";
 
 const tempMatchValue = [
   {
@@ -37,6 +38,9 @@ const tempGoalValue = [
 const ChampionsLeague = () => {
   const [champMatchData, setChampMatchData] = useState(tempMatchValue);
   const [champGoalData, setChampGoalData] = useState(tempGoalValue);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getChampLeagueData()
@@ -61,11 +65,19 @@ const ChampionsLeague = () => {
   return (
     <>
       <NavBar />
+
+      <PageNav bannerRef={bannerRef} statsRef={statsRef} aboutRef={aboutRef} />
       <Matches matches={champMatchData} />
-      <PageTitle title="CHAMPIONS LEAGUE" />
-      <ChampionsLeagueBanner />
-      <Stats scorers={champGoalData} />
-      <ChampionsLeagueAbout />
+      <div ref={bannerRef}>
+        <PageTitle title="CHAMPIONS LEAGUE" />
+        <ChampionsLeagueBanner />
+      </div>
+      <div ref={statsRef}>
+        <Stats scorers={champGoalData} />
+      </div>
+      <div ref={aboutRef}>
+        <ChampionsLeagueAbout />
+      </div>
     </>
   );
 };
