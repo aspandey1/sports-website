@@ -1,50 +1,74 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function useIsVisible(ref: any) {
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) =>
-      setIntersecting(entry.isIntersecting)
-    );
-
-    observer.observe(ref.current);
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref]);
-
-  return isIntersecting;
+interface linkElements {
+  name: string;
+  ref: React.RefObject<HTMLDivElement>;
 }
 
 interface incomingProps {
-  bannerRef: any;
-  statsRef: any;
-  aboutRef: any;
+  links: linkElements[];
 }
 
-const visibleTextColor: string = "text-blue-200 py-1 px-3";
-const notVisibleTextColor: string = "text-gray-300 py-1 px-3";
-
 const PageNav: React.FC<incomingProps> = (props: incomingProps) => {
-  const bannerVisible = useIsVisible(props.bannerRef);
-  const statsVisible = useIsVisible(props.statsRef);
-  const aboutVisible = useIsVisible(props.aboutRef);
+  const [activeLink, setActiveLink] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  console.log(bannerVisible);
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const marginTop = sectionId === "home" ? 200 : 68;
+      const scrollToY =
+        element.getBoundingClientRect().top + window.scrollY - marginTop;
+      window.scrollTo({ top: scrollToY, behavior: "smooth" });
+    }
+  };
+
+  const activeSection = () => {
+    for (let i = props.links.length - 1; i >= 0; i--) {
+      const section = document.getElementById(props.links[i].name);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          setActiveLink(props.links[i].name);
+          break;
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+      activeSection();
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="flex sticky top-0 px-[2rem] lg:px-[6rem] justify-center gap-10 text-lg font-bold text-gray-300 py-4 bg-neutral-700 z-40">
-      <div className={bannerVisible ? visibleTextColor : notVisibleTextColor}>
-        HOME
-      </div>
-      <div className={statsVisible ? visibleTextColor : notVisibleTextColor}>
-        STATS
-      </div>
-      <div className={aboutVisible ? visibleTextColor : notVisibleTextColor}>
-        ABOUT
-      </div>
-    </div>
+    <nav className="flex sticky top-0 px-[2rem] lg:px-[6rem] justify-center text-lg font-bold text-gray-300 py-4 bg-neutral-700 z-40">
+      <ul className="flex gap-2">
+        {props.links.map((element) => (
+          <li
+            className={
+              activeLink === element.name
+                ? "text-black bg-gray-300 rounded uppercase py-1 px-3 hover:cursor-pointer"
+                : "text-gray-300 uppercase py-1 px-3 hover:cursor-pointer hover:bg-neutral-500 rounded"
+            }
+            onClick={() => scrollToSection(element.name)}
+          >
+            {element.name}
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

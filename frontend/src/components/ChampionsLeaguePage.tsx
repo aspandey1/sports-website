@@ -38,9 +38,15 @@ const tempGoalValue = [
 const ChampionsLeague = () => {
   const [champMatchData, setChampMatchData] = useState(tempMatchValue);
   const [champGoalData, setChampGoalData] = useState(tempGoalValue);
-  const bannerRef = useRef<HTMLDivElement>(null);
+  const homeRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
+
+  const links = [
+    { name: "home", ref: homeRef },
+    { name: "stats", ref: statsRef },
+    { name: "about", ref: aboutRef },
+  ];
 
   useEffect(() => {
     getChampLeagueData()
@@ -65,17 +71,16 @@ const ChampionsLeague = () => {
   return (
     <>
       <NavBar />
-
-      <PageNav bannerRef={bannerRef} statsRef={statsRef} aboutRef={aboutRef} />
-      <Matches matches={champMatchData} />
-      <div ref={bannerRef}>
+      <PageNav links={links} />
+      <div ref={homeRef} id="home">
+        <Matches matches={champMatchData} />
         <PageTitle title="CHAMPIONS LEAGUE" />
         <ChampionsLeagueBanner />
       </div>
-      <div ref={statsRef}>
+      <div ref={statsRef} id="stats">
         <Stats scorers={champGoalData} />
       </div>
-      <div ref={aboutRef}>
+      <div ref={aboutRef} id="about">
         <ChampionsLeagueAbout />
       </div>
     </>

@@ -44,7 +44,10 @@ const NavBar = () => {
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
               <li key={link.name}>
-                <Link to={link.link} className="uppercase whitespace-nowrap">
+                <Link
+                  to={link.link}
+                  className="uppercase whitespace-nowrap font-bold text-lg text-gray-300"
+                >
                   {link.name}
                 </Link>
               </li>
