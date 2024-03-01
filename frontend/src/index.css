@@ -13,3 +13,8 @@
     scrollbar-width: none; /* Firefox */
   }
 }
+
+#sidebar a.active {
+  color: red;
+  background-color: red;
+}
