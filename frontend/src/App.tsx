@@ -1,4 +1,5 @@
-import Landing from "./components/Landing";
+import Footer from "./components/Footer";
+import Landing from "./components/Landing/LandingPage";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <>
       <NavBar />
       <Landing />
+      <Footer />
     </>
   );
 };

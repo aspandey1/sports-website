@@ -1,4 +1,4 @@
-import picture from "../assets/unsplash.jpg";
+import picture from "../../assets/unsplash.jpg";
 
 const Hero = () => {
   return (
@@ -12,7 +12,19 @@ const Hero = () => {
           consectetur, tempore nulla illum rem saepe!
         </p>
       </div>
-      <img src={picture} alt="" className="lg:w-[70%] w-full rounded-lg" />
+      <div className="lg:w-[70%] w-full text-gray-500 text-[12px]">
+        <img src={picture} alt="" className="rounded-lg pb-2" />
+        <div className="text-center lg:float-end">
+          Photo by{" "}
+          <a href="https://unsplash.com/@marcoscgs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+            Marcos Moraes{" "}
+          </a>
+          on{" "}
+          <a href="https://unsplash.com/photos/soccer-stadium-during-daytime-rFehnP5wN4Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+            Unsplash
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
