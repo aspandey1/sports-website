@@ -1,4 +1,4 @@
-import picture from "../assets/unsplash.jpg";
+import picture from "../../assets/unsplash.jpg";
 
 const Hero = () => {
   return (

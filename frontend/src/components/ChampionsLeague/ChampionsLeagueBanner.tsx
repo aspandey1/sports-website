@@ -1,9 +1,9 @@
-import clImage1 from "../assets/ucl-ball.jpg";
-import interImage from "../assets/atletico-inter.jpg";
-import newCL from "../assets/newCL.jpg";
-import bayern from "../assets/bayern.jpg";
-import round16 from "../assets/round-16.jpg";
-import playersToWatch from "../assets/player-to-watch.jpg";
+import clImage1 from "../../assets/ucl-ball.jpg";
+import interImage from "../../assets/atletico-inter.jpg";
+import newCL from "../../assets/newCL.jpg";
+import bayern from "../../assets/bayern.jpg";
+import round16 from "../../assets/round-16.jpg";
+import playersToWatch from "../../assets/player-to-watch.jpg";
 
 interface news {
   link: string;
@@ -46,13 +46,11 @@ const ChampionsLeagueBanner = () => {
         <img src={clImage1} alt="" />
       </div>
       <div className="lg:w-[30%] lg:pl-5 pt-10 lg:pt-0 text-neutral-800">
-        <div className="h-[9%]">
-          <h1 className="text-center lg:text-left font-bold 2xl:text-4xl lg:text-2xl text-2xl lg:pb-0 pb-10">
+        <div className="h-[10%] pb-5 lg:pb-0 ">
+          <h1 className="text-center lg:text-left font-bold 2xl:text-4xl lg:text-2xl text-2xl lg:pb-0">
             TOP STORIES
           </h1>
-        </div>
-        <div className="h-[1%]">
-          <div className="2xl:h-[6px] h-[3px] w-full bg-neutral-800"></div>
+          <div className="h-[8px] bg-blue-800 lg:mt-0 mt-2 w-full"></div>
         </div>
 
         {topStories.map((element, index) => (
@@ -60,7 +58,10 @@ const ChampionsLeagueBanner = () => {
             key={index}
             href={element.link}
             target="_blank"
-            className="flex items-center border-b-2 lg:border-r-0 border-r-2 lg:border-l-0 border-l-2 border-black hover:brightness-[85%] hover:cursor-pointer hover:bg-slate-200 h-[18%] w-full"
+            className={
+              "flex items-center hover:brightness-[85%] hover:cursor-pointer hover:bg-slate-200 h-[18%] w-full" +
+              (index % 2 === 0 ? " bg-slate-300" : " bg-gray-300")
+            }
           >
             <div className="h-inherit w-[40%] mr-4 ">
               <img src={element.image} alt="" className="py-2" />

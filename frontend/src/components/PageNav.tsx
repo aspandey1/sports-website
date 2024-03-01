@@ -10,7 +10,7 @@ interface incomingProps {
 }
 
 const PageNav: React.FC<incomingProps> = (props: incomingProps) => {
-  const [activeLink, setActiveLink] = useState("home");
+  const [activeLink, setActiveLink] = useState("stats");
   const [isScrolled, setIsScrolled] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -53,10 +53,11 @@ const PageNav: React.FC<incomingProps> = (props: incomingProps) => {
   }, []);
 
   return (
-    <nav className="flex sticky top-0 px-[2rem] lg:px-[6rem] justify-center text-lg font-bold text-gray-300 py-4 bg-neutral-700 z-40">
+    <nav className="flex sticky top-0 px-[2rem] lg:px-[6rem] justify-center text-lg font-bold text-gray-300 py-4 bg-neutral-700 z-[0]">
       <ul className="flex gap-2">
         {props.links.map((element) => (
           <li
+            key={element.name}
             className={
               activeLink === element.name
                 ? "text-black bg-gray-300 rounded uppercase py-1 px-3 hover:cursor-pointer"

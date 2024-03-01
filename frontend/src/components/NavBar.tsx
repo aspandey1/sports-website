@@ -31,7 +31,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className="bg-neutral-800 items-center">
+    <header className="bg-neutral-800 items-center py-2">
       <nav className="flex justify-between items-center md:px-[6rem] px-[2rem]">
         <Link to={"/"} className="z-50 bg-neutral-800 py-4">
           <GiSoccerBall color="lightgrey" className="w-16 h-16" />

@@ -24,9 +24,11 @@ const lightBg: string = "bg-slate-300 flex h-max";
 const Stats: React.FC<data> = (props: data) => {
   return (
     <div className="px-[2rem] lg:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-6 pb-10">
-      <div className="w-min">
-        <h1 className="font-bold text-4xl 2xl:text-5xl pb-2">Stats</h1>
-        <div className="h-[8px] bg-blue-800"></div>
+      <div className="lg:w-fit w-full">
+        <h1 className="font-bold text-4xl 2xl:text-5xl pb-2 lg:text-left text-center">
+          Stats
+        </h1>
+        <div className="h-[8px] bg-blue-800 w-full"></div>
       </div>
 
       {props.scorers.length == 10 ? (

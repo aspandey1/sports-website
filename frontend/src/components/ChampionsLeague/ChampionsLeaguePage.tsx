@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import {
   getChampLeagueData,
   getChampGoalData,
-} from "../services/requests/ChampLeague";
+} from "../../services/requests/ChampLeague";
 
-import NavBar from "./NavBar";
-import Matches from "./Matches";
+import NavBar from "../NavBar";
+import Matches from "../Matches";
 import ChampionsLeagueAbout from "./ChampionsLeagueAbout";
 import ChampionsLeagueBanner from "./ChampionsLeagueBanner";
-import PageTitle from "./PageTitle";
-import Stats from "./Stats";
-import PageNav from "./PageNav";
+import PageTitle from "../PageTitle";
+import Stats from "../Stats";
+import PageNav from "../PageNav";
+import Footer from "../Footer";
 
 const tempMatchValue = [
   {
@@ -43,7 +44,6 @@ const ChampionsLeague = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
 
   const links = [
-    { name: "home", ref: homeRef },
     { name: "stats", ref: statsRef },
     { name: "about", ref: aboutRef },
   ];
@@ -71,18 +71,19 @@ const ChampionsLeague = () => {
   return (
     <>
       <NavBar />
-      <PageNav links={links} />
       <div ref={homeRef} id="home">
         <Matches matches={champMatchData} />
         <PageTitle title="CHAMPIONS LEAGUE" />
         <ChampionsLeagueBanner />
       </div>
+      <PageNav links={links} />
       <div ref={statsRef} id="stats">
         <Stats scorers={champGoalData} />
       </div>
       <div ref={aboutRef} id="about">
         <ChampionsLeagueAbout />
       </div>
+      <Footer />
     </>
   );
 };

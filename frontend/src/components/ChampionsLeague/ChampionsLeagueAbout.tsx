@@ -1,4 +1,4 @@
-import CLPhoto from "../assets/champions-league-preview-banner.jpg";
+import CLPhoto from "../../assets/champions-league-preview-banner.jpg";
 
 const ChampionsLeagueAbout = () => {
   return (
