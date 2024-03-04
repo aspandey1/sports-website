@@ -44,7 +44,10 @@ const NavBar = () => {
         >
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
-              <li key={link.name}>
+              <li
+                key={link.name}
+                className="hover:scale-[110%] ease-in duration-300"
+              >
                 <NavLink
                   to={link.link}
                   id="sidebar"

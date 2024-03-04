@@ -68,7 +68,7 @@ const Matches: React.FC<data> = (props: data) => {
                           <img
                             src={e.homeTeamCrest}
                             alt=""
-                            className="w-[1.5rem]"
+                            className="w-[1.5rem] h-[1.5rem]"
                           />
                           <div className="pl-2">{e.homeTeamAbv}</div>
                         </div>
@@ -76,7 +76,7 @@ const Matches: React.FC<data> = (props: data) => {
                           <img
                             src={e.awayTeamCrest}
                             alt=""
-                            className="w-[1.5rem]"
+                            className="w-[1.5rem] h-[1.5rem]"
                           />
                           <div className="pl-2">{e.awayTeamAbv}</div>
                         </div>
