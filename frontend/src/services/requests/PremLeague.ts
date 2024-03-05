@@ -10,3 +10,10 @@ export async function getPremMatches() {
   );
   return response.data;
 }
+
+export async function getPremStandings() {
+  const response = await axios.get(
+    "http://localhost:7071/api/httpTriggerGetPremStandings"
+  );
+  return response.data;
+}

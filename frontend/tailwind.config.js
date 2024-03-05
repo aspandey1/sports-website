@@ -17,6 +17,7 @@ export default {
 
       "2xl": "1836px",
       // => @media (min-width: 1536px) { ... }
+      table: "679px",
     },
     extend: {},
   },

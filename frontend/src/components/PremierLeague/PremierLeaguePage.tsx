@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { getPremMatches } from "../../services/requests/PremLeague";
+import {
+  getPremMatches,
+  getPremStandings,
+} from "../../services/requests/PremLeague";
 import NavBar from "../NavBar";
 import Matches from "../Matches";
 import PremierLeagueBanner from "./PremierLeagueBanner";
@@ -17,8 +20,22 @@ const tempMatchValue = [
   },
 ];
 
+const tempStandingsValue = [
+  {
+    position: -1,
+    playedGames: -1,
+    points: -1,
+    goalDifference: -1,
+    crest: "NAN",
+    teamAbv: "NAN",
+  },
+];
+
 const PremierLeaguePage = () => {
   const [premMatchesData, setPremMatchesData] = useState(tempMatchValue);
+  const [premStandingsData, setPremStandingsData] =
+    useState(tempStandingsValue);
+
   useEffect(() => {
     // getPremMatches()
     //   .then((data) => {
@@ -28,11 +45,22 @@ const PremierLeaguePage = () => {
     //     error.response.data.matches;
     //   });
   }, []);
+
+  useEffect(() => {
+    getPremStandings()
+      .then((data) => {
+        setPremStandingsData(data.standings);
+      })
+      .catch((error) => {
+        error.response.data.standings;
+      });
+  });
+
   return (
     <>
       <NavBar />
       <Matches matches={premMatchesData} />
-      <PremierLeagueBanner />
+      <PremierLeagueBanner standings={premStandingsData} />
     </>
   );
 };
