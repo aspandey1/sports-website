@@ -6,6 +6,8 @@ import {
 import NavBar from "../NavBar";
 import Matches from "../Matches";
 import PremierLeagueBanner from "./PremierLeagueBanner";
+import ChampionsLeagueAbout from "../ChampionsLeague/ChampionsLeagueAbout";
+import PageTitle from "../PageTitle";
 
 const tempMatchValue = [
   {
@@ -47,20 +49,21 @@ const PremierLeaguePage = () => {
   }, []);
 
   useEffect(() => {
-    getPremStandings()
-      .then((data) => {
-        setPremStandingsData(data.standings);
-      })
-      .catch((error) => {
-        error.response.data.standings;
-      });
-  });
+    // getPremStandings()
+    //   .then((data) => {
+    //     setPremStandingsData(data.standings);
+    //   })
+    //   .catch((error) => {
+    //     error.response.data.standings;
+    //   });
+  }, []);
 
   return (
     <>
       <NavBar />
       <Matches matches={premMatchesData} />
-      <PremierLeagueBanner standings={premStandingsData} />
+      <PageTitle title="Premier League" />
+      <PremierLeagueBanner />
     </>
   );
 };
