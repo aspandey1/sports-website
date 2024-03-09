@@ -1,51 +1,66 @@
 import premBanner from "../../assets/13.jpg";
-import { topStories } from "../../util//premStories";
+// import { topStories } from "../../util//premStories";
+import { TbChevronCompactDown } from "react-icons/tb";
+import { TbChevronCompactUp } from "react-icons/tb";
 
-// interface standingsElements {
-//   position: number;
-//   playedGames: number;
-//   points: number;
-//   goalDifference: number;
-//   crest: string;
-//   teamAbv: string;
-// }
+interface standingsElements {
+  position: number;
+  playedGames: number;
+  points: number;
+  goalDifference: number;
+  crest: string;
+  teamAbv: string;
+}
 
-// interface incomingData {
-//   standings: standingsElements[];
-// }
+interface incomingData {
+  standings: standingsElements[];
+}
 
-const PremierLeagueBanner = () => {
+const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
   return (
-    <div className="lg:flex px-[2rem] lg:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-2 pb-10">
-      <div className="h-full lg:w-[70%]">
-        <img src={premBanner} className="h-full w-full" alt="" />
+    <div className="xl:flex px-[2rem] lg:px-[6rem] bg-gradient-to-t from-white to-slate-300 pt-2 pb-10">
+      <div className="h-full xl:w-[70%]">
+        <img src={premBanner} className="rounded h-full w-full" alt="" />
       </div>
-      <div className="lg:w-[30%] lg:pl-5 pt-10 lg:pt-0 text-neutral-800">
-        <div className="h-[10%] pb-5 lg:pb-0 ">
-          <h1 className="text-center lg:text-left font-bold 2xl:text-4xl lg:text-2xl text-2xl lg:pb-0">
-            TOP STORIES
-          </h1>
-          <div className="h-[8px] bg-blue-800 lg:mt-0 mt-2 w-full"></div>
+      <div className="xl:w-[30%] xl:pl-5 pt-6 xl:pt-0 text-neutral-800">
+        <div className="h-[5%]">
+          <div className="h-full flex bg-neutral-800 text-white pl-4 pr-6 items-center rounded-t-lg">
+            <div className="w-[25%]">Team</div>
+            <div className="w-[25%] text-right">GP</div>
+            <div className="w-[25%] text-right">GD</div>
+            <div className="w-[25%] text-right">Pts</div>
+          </div>
         </div>
-
-        {topStories.map((element, index) => (
-          <a
-            key={index}
-            href={element.link}
-            target="_blank"
-            className={
-              "flex items-center hover:brightness-[85%] hover:cursor-pointer hover:bg-slate-200 h-[18%] w-full" +
-              (index % 2 === 0 ? " bg-slate-300" : " bg-gray-300")
-            }
-          >
-            <div className="w-[40%] mr-4 ">
-              <img src={element.image} alt="" className="py-2" />
+        <div
+          id="table-scroll"
+          className="md:overflow-y-scroll overflow-y-hidden h-[95%] bg-[#a7bed9] rounded-b-lg w-full"
+        >
+          {props.standings.map((element, index) => (
+            <div
+              id="table-roboto-mono"
+              key={index}
+              className="flex h-[8%] items-center w-full pl-4 border-b-2 border-black xl:py-0 py-2 bg-[#a7bed9] hover:bg-neutral-500 hover:text-white"
+            >
+              <div className="flex items-center w-[25%] font-bold border-r-2 border-black 2xl:text-xl lg:text-md text-sm">
+                <img
+                  src={element.crest}
+                  alt=""
+                  className="w-[1em] h-[1em] lg:w-[1.5em] lg:h-[1.5em] 2xl:w-[1.9em] 2xl:h-[1.9em] mr-2"
+                />
+                <div>{element.teamAbv}</div>
+              </div>
+              <div className="text-right w-[25%] pr-2 2xl:text-xl lg:text-md text-sm">
+                {element.playedGames}
+              </div>
+              <div className="text-right w-[25%] pr-3 2xl:text-xl lg:text-md text-sm">
+                {element.goalDifference}
+              </div>
+              <div className="text-right w-[25%] font-black pr-4 2xl:text-xl lg:text-md text-sm">
+                {element.points}
+              </div>
             </div>
-            <div className="font-bold 2xl:text-xl lg:text-[12px] text-xl w-[60%] pr-2 lg:leading-3">
-              {element.title}
-            </div>
-          </a>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

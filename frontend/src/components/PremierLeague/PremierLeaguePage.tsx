@@ -49,13 +49,13 @@ const PremierLeaguePage = () => {
   }, []);
 
   useEffect(() => {
-    // getPremStandings()
-    //   .then((data) => {
-    //     setPremStandingsData(data.standings);
-    //   })
-    //   .catch((error) => {
-    //     error.response.data.standings;
-    //   });
+    getPremStandings()
+      .then((data) => {
+        setPremStandingsData(data.standings);
+      })
+      .catch((error) => {
+        error.response.data.standings;
+      });
   }, []);
 
   return (
@@ -63,7 +63,7 @@ const PremierLeaguePage = () => {
       <NavBar />
       <Matches matches={premMatchesData} />
       <PageTitle title="Premier League" />
-      <PremierLeagueBanner />
+      <PremierLeagueBanner standings={premStandingsData} />
     </>
   );
 };

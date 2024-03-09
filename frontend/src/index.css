@@ -14,7 +14,26 @@
   }
 }
 
-#sidebar a.active {
-  color: red;
-  background-color: red;
+#table-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#table-scroll::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+#table-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+#table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#table-roboto-mono {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
 }
