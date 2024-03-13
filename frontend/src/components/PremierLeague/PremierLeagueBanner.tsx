@@ -1,7 +1,8 @@
 import premBanner from "../../assets/13.jpg";
-// import { topStories } from "../../util//premStories";
-import { TbChevronCompactDown } from "react-icons/tb";
-import { TbChevronCompactUp } from "react-icons/tb";
+import TableLoader from "../TableLoader";
+import { tableStandingsLoader } from "../../util/tempValues";
+
+const numOfTeams: number = 20;
 
 interface standingsElements {
   position: number;
@@ -11,6 +12,17 @@ interface standingsElements {
   crest: string;
   teamAbv: string;
 }
+
+const tempStandingsValue = [
+  {
+    position: -1,
+    playedGames: -1,
+    points: -1,
+    goalDifference: -1,
+    crest: "NAN",
+    teamAbv: "NAN",
+  },
+];
 
 interface incomingData {
   standings: standingsElements[];
@@ -31,36 +43,40 @@ const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
             <div className="w-[25%] text-right">Pts</div>
           </div>
         </div>
-        <div
-          id="table-scroll"
-          className="md:overflow-y-scroll overflow-y-hidden h-[95%] bg-[#a7bed9] rounded-b-lg w-full"
-        >
-          {props.standings.map((element, index) => (
-            <div
-              id="table-roboto-mono"
-              key={index}
-              className="flex h-[8%] items-center w-full pl-4 border-b-2 border-black xl:py-0 py-2 bg-[#a7bed9] hover:bg-neutral-500 hover:text-white"
-            >
-              <div className="flex items-center w-[25%] font-bold border-r-2 border-black 2xl:text-xl lg:text-md text-sm">
-                <img
-                  src={element.crest}
-                  alt=""
-                  className="w-[1em] h-[1em] lg:w-[1.5em] lg:h-[1.5em] 2xl:w-[1.9em] 2xl:h-[1.9em] mr-2"
-                />
-                <div>{element.teamAbv}</div>
+        {props.standings !== tempStandingsValue ? (
+          <div
+            id="table-scroll"
+            className="md:overflow-y-scroll overflow-y-hidden h-[95%] bg-[#a7bed9] rounded-b-lg w-full"
+          >
+            {props.standings.map((element, index) => (
+              <div
+                id="table-roboto-mono"
+                key={index}
+                className="flex h-[8%] items-center w-full pl-4 border-b-2 border-black xl:py-0 py-2 bg-[#a7bed9] hover:bg-neutral-500 hover:text-white"
+              >
+                <div className="flex items-center w-[25%] font-bold border-r-2 border-black 2xl:text-xl lg:text-md text-sm">
+                  <img
+                    src={element.crest}
+                    alt=""
+                    className="w-[1em] h-[1em] lg:w-[1.5em] lg:h-[1.5em] 2xl:w-[1.9em] 2xl:h-[1.9em] mr-2"
+                  />
+                  <div>{element.teamAbv}</div>
+                </div>
+                <div className="text-right w-[25%] pr-2 2xl:text-xl lg:text-md text-sm">
+                  {element.playedGames}
+                </div>
+                <div className="text-right w-[25%] pr-3 2xl:text-xl lg:text-md text-sm">
+                  {element.goalDifference}
+                </div>
+                <div className="text-right w-[25%] font-black pr-4 2xl:text-xl lg:text-md text-sm">
+                  {element.points}
+                </div>
               </div>
-              <div className="text-right w-[25%] pr-2 2xl:text-xl lg:text-md text-sm">
-                {element.playedGames}
-              </div>
-              <div className="text-right w-[25%] pr-3 2xl:text-xl lg:text-md text-sm">
-                {element.goalDifference}
-              </div>
-              <div className="text-right w-[25%] font-black pr-4 2xl:text-xl lg:text-md text-sm">
-                {element.points}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <TableLoader />
+        )}
       </div>
     </div>
   );
