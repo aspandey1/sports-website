@@ -1,7 +1,10 @@
 import plImage from "../../assets/Premier-League.jpg";
 const PremierLeagueAbout = () => {
   return (
-    <div className="lg:flex px-[2rem] lg:px-[6rem] bg-gradient-to-t from-white to-slate-300 py-10 block lg:items-center ">
+    <div
+      id="about"
+      className="lg:flex px-[2rem] lg:px-[6rem] bg-gradient-to-t from-white to-slate-300 py-10 block lg:items-center "
+    >
       <div className="flex flex-col lg:w-[40%]">
         <div className="lg:w-min w-full text-center pb-6 lg:pb-0">
           <h1 className="font-bold text-4xl 2xl:text-5xl pb-2">About</h1>

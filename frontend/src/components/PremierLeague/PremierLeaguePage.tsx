@@ -10,6 +10,8 @@ import PageTitle from "../PageTitle";
 import PremierLeagueAbout from "./PremierLeagueAbout";
 import PremierLeagueNews from "./PremierLeagueNews";
 import Footer from "../Footer";
+import PageNav from "../PageNav";
+import { link } from "fs";
 
 const tempMatchValue = [
   {
@@ -33,6 +35,11 @@ const tempStandingsValue = [
     crest: "NAN",
     teamAbv: "NAN",
   },
+];
+
+const links = [
+  { name: "news", linkId: "news" },
+  { name: "about", linkId: "about" },
 ];
 
 const PremierLeaguePage = () => {
@@ -67,6 +74,7 @@ const PremierLeaguePage = () => {
       <Matches matches={premMatchesData} />
       <PageTitle title="Premier League" />
       <PremierLeagueBanner standings={premStandingsData} />
+      <PageNav links={links} />
       <PremierLeagueNews />
       <PremierLeagueAbout />
       <Footer />
