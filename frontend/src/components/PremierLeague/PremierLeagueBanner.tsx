@@ -1,8 +1,4 @@
 import premBanner from "../../assets/13.jpg";
-import TableLoader from "../TableLoader";
-import { tableStandingsLoader } from "../../util/tempValues";
-
-const numOfTeams: number = 20;
 
 interface standingsElements {
   position: number;
@@ -43,7 +39,7 @@ const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
             <div className="w-[25%] text-right">Pts</div>
           </div>
         </div>
-        {props.standings !== tempStandingsValue ? (
+        {props.standings.toString() !== tempStandingsValue.toString() ? (
           <div
             id="table-scroll"
             className="md:overflow-y-scroll overflow-y-hidden h-[95%] bg-[#a7bed9] rounded-b-lg w-full"
@@ -75,7 +71,10 @@ const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
             ))}
           </div>
         ) : (
-          <TableLoader />
+          <div className="flex flex-col items-center justify-center h-[500px] lg:h-[95%] bg-[#a7bed9] rounded-b-lg">
+            <div className="loader"></div>
+            <div className="loading-text">Loading</div>
+          </div>
         )}
       </div>
     </div>
