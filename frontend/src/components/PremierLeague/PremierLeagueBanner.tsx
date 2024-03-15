@@ -50,7 +50,7 @@ const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
                 key={index}
                 className="flex h-[8%] items-center w-full pl-4 border-b-2 border-black xl:py-0 py-2 bg-[#a7bed9] hover:bg-neutral-500 hover:text-white"
               >
-                <div className="flex items-center w-[25%] font-bold border-r-2 border-black 2xl:text-xl lg:text-md text-sm">
+                <div className="flex items-center w-[25%] font-bold border-r-0 sm:border-r-2 border-black 2xl:text-xl lg:text-md text-sm">
                   <img
                     src={element.crest}
                     alt=""
@@ -71,7 +71,7 @@ const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center h-[500px] lg:h-[95%] bg-[#a7bed9] rounded-b-lg">
+          <div className="flex flex-col items-center justify-center h-[500px] xl:h-[95%] bg-[#a7bed9] rounded-b-lg">
             <div className="loader"></div>
             <div className="loading-text">Loading</div>
           </div>

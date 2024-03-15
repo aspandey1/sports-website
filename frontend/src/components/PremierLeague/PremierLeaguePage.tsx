@@ -49,23 +49,23 @@ const PremierLeaguePage = () => {
     useState(tempStandingsValue);
 
   useEffect(() => {
-    // getPremMatches()
-    //   .then((data) => {
-    //     setPremMatchesData(data.matches);
-    //   })
-    //   .catch((error) => {
-    //     error.response.data.matches;
-    //   });
+    getPremMatches()
+      .then((data) => {
+        setPremMatchesData(data.matches);
+      })
+      .catch((error) => {
+        error.response.data.matches;
+      });
   }, []);
 
   useEffect(() => {
-    // getPremStandings()
-    //   .then((data) => {
-    //     setPremStandingsData(data.standings);
-    //   })
-    //   .catch((error) => {
-    //     error.response.data.standings;
-    //   });
+    getPremStandings()
+      .then((data) => {
+        setPremStandingsData(data.standings);
+      })
+      .catch((error) => {
+        error.response.data.standings;
+      });
   }, []);
 
   return (

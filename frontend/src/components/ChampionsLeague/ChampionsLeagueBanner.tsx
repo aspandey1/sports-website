@@ -8,27 +8,20 @@ const ChampionsLeagueBanner = () => {
         <img src={clImage1} alt="" />
       </div>
       <div className="lg:w-[30%] lg:pl-5 pt-10 lg:pt-0 text-neutral-800">
-        <div className="h-[10%] pb-5 lg:pb-0 ">
-          <h1 className="text-center lg:text-left font-bold 2xl:text-4xl lg:text-2xl text-2xl lg:pb-0">
-            TOP STORIES
-          </h1>
-          <div className="h-[8px] bg-blue-800 lg:mt-0 mt-2 w-full"></div>
-        </div>
-
         {topStories.map((element, index) => (
           <a
             key={index}
             href={element.link}
             target="_blank"
             className={
-              "flex items-center hover:brightness-[85%] hover:cursor-pointer hover:bg-slate-200 h-[18%] w-full" +
-              (index % 2 === 0 ? " bg-slate-300" : " bg-gray-300")
+              "flex items-center hover:bg-gray-500 hover:cursor-pointer hover:bg-slate-200 h-[20%] w-full hover:text-white rounded-sm" +
+              (index % 2 === 0 ? " bg-slate-400" : " bg-[#a7bed9]")
             }
           >
-            <div className="h-inherit w-[40%] mr-4 ">
+            <div className="h-inherit w-[40%] ml-2 mr-4 ">
               <img src={element.image} alt="" className="py-2" />
             </div>
-            <div className="font-bold 2xl:text-xl lg:text-[12px] text-xl w-[60%] pr-2 lg:leading-3">
+            <div className="md:font-bold md:text-lg 2xl:text-xl lg:text-[12px] text-md w-[60%] pr-2 lg:leading-3">
               {element.title}
             </div>
           </a>

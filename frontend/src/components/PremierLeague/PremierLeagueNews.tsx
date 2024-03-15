@@ -18,7 +18,7 @@ const PremierLeagueNews = () => {
             href={element.link}
             target="_blank"
             key={element.title}
-            className="w-full md:w-[25%] bg-[#a7bed9] ease-in duration-200 hover:scale-105 hover:cursor-pointer hover:underline rounded-b-lg"
+            className="w-full md:w-[25%] bg-[#a7bed9] ease-in duration-200 hover:scale-105 hover:cursor-pointer hover:underline rounded-lg"
           >
             <img src={element.image} className="w-full rounded-t-lg" alt="" />
             <div className="w-full p-4 text-sm md:text-lg">{element.title}</div>
@@ -31,7 +31,7 @@ const PremierLeagueNews = () => {
             href={element.link}
             target="_blank"
             key={element.title}
-            className="w-full md:w-[25%] bg-[#a7bed9] ease-in duration-200 hover:scale-105 hover:cursor-pointer hover:underline rounded-b-lg"
+            className="w-full md:w-[25%] bg-[#a7bed9] ease-in duration-200 hover:scale-105 hover:cursor-pointer hover:underline rounded-lg"
           >
             <img src={element.image} className="w-full rounded-t-lg" alt="" />
             <div className="w-full p-4 text-sm md:text-lg">{element.title}</div>
