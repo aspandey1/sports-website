@@ -46,23 +46,27 @@ const ChampionsLeague = () => {
   ];
 
   useEffect(() => {
-    // getChampLeagueData()
-    //   .then((data) => {
-    //     setChampMatchData(data.matches);
-    //   })
-    //   .catch((error) => {
-    //     setChampMatchData(error.response.data.matches);
-    //   });
+    getChampLeagueData()
+      .then((data) => {
+        if (data.matches.length === 0) {
+          setChampMatchData(tempMatchValue);
+        } else {
+          setChampMatchData(data.matches);
+        }
+      })
+      .catch((error) => {
+        setChampMatchData(error.response.data.matches);
+      });
   }, []);
 
   useEffect(() => {
-    // getChampGoalData()
-    //   .then((data) => {
-    //     setChampGoalData(data.scorers);
-    //   })
-    //   .catch((error) => {
-    //     setChampGoalData(error.response.data.matches);
-    //   });
+    getChampGoalData()
+      .then((data) => {
+        setChampGoalData(data.scorers);
+      })
+      .catch((error) => {
+        setChampGoalData(error.response.data.matches);
+      });
   }, []);
 
   return (

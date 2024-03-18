@@ -13,7 +13,6 @@ interface NavInterface {
 const NavLinks: Array<NavInterface> = [
   { name: "Champions League", link: "/championsleague" },
   { name: "Premier League", link: "/premierleague" },
-  { name: "Bundesliga", link: "/teams" },
 ];
 
 const NavBar = () => {

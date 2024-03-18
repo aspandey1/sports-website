@@ -11,7 +11,6 @@ import PremierLeagueAbout from "./PremierLeagueAbout";
 import PremierLeagueNews from "./PremierLeagueNews";
 import Footer from "../Footer";
 import PageNav from "../PageNav";
-import { link } from "fs";
 
 const tempMatchValue = [
   {
