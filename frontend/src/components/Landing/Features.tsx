@@ -8,7 +8,7 @@ const Features = () => {
         <div className="h-[8px] bg-blue-800 w-full"></div>
       </div>
       <div className="lg:flex justify-between pt-8">
-        <div className="relative flex justify-center lg:w-[30%] bg-gray-400 lg:py-[22vh] py-[15vh] px-[2vh] text-3xl border-neutral-800 border-4 rounded-lg mb-10">
+        <div className="gradient-bg-hover relative flex justify-center lg:w-[30%] bg-gray-400 lg:py-[22vh] py-[15vh] px-[2vh] text-3xl border-neutral-800 border-4 rounded mb-10 ">
           <div className="uppercase text-center font-semibold text-neutral-800 lg:text-3xl text-[20px]">
             View Champions League Stats
           </div>
@@ -16,7 +16,7 @@ const Features = () => {
             1
           </div>
         </div>
-        <div className="relative flex justify-center lg:w-[30%] bg-gray-400 lg:py-[22vh] py-[15vh] px-[2vh] text-3xl border-neutral-800 border-4 rounded-lg mb-10">
+        <div className="gradient-bg-hover relative flex justify-center lg:w-[30%] bg-gray-400 lg:py-[22vh] py-[15vh] px-[2vh] text-3xl border-neutral-800 border-4 rounded mb-10 ">
           <div className="uppercase text-center font-semibold text-neutral-800 lg:text-3xl text-[20px]">
             View Premier League Table
           </div>
@@ -24,7 +24,7 @@ const Features = () => {
             2
           </div>
         </div>
-        <div className="relative flex justify-center lg:w-[30%] bg-gray-400 lg:py-[22vh] py-[15vh] px-[2vh] text-3xl border-neutral-800 border-4 rounded-lg mb-10">
+        <div className="gradient-bg-hover relative flex justify-center lg:w-[30%] bg-gray-400 lg:py-[22vh] py-[15vh] px-[2vh] text-3xl border-neutral-800 border-4 rounded mb-10 ">
           <div className="uppercase text-center font-semibold text-neutral-800 lg:text-3xl text-[20px]">
             View Latest Soccer News
           </div>

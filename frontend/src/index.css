@@ -79,3 +79,18 @@
     content: "";
   }
 }
+
+.gradient-bg-hover:hover {
+  background: linear-gradient(135deg, #9ca3af, rgb(191, 188, 188), #9ca3af);
+  background-size: 500%, 500%;
+  animation: color 1.2s;
+}
+
+@keyframes color {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

@@ -14,7 +14,7 @@ const ChampionsLeagueBanner = () => {
             href={element.link}
             target="_blank"
             className={
-              "flex items-center hover:bg-gray-500 hover:cursor-pointer hover:bg-slate-200 h-[20%] w-full hover:text-white rounded-sm" +
+              "flex items-center hover:cursor-pointer hover:underline hover:brightness-[80%] h-[20%] w-full rounded-sm" +
               (index % 2 === 0 ? " bg-slate-400" : " bg-[#a7bed9]")
             }
           >
