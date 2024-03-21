@@ -45,8 +45,6 @@ app.http("httpTriggerGetChampMatches", {
         }
       });
 
-      context.log(JSON.stringify(upcoming));
-
       return {
         body: JSON.stringify(upcoming),
         status: 200,

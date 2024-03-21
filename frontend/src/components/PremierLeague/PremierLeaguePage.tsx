@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { tempMatchValue, tempStandingsValue } from "../../util/premTempValues";
 import {
   getPremMatches,
   getPremStandings,
@@ -12,30 +13,6 @@ import PremierLeagueNews from "./PremierLeagueNews";
 import Footer from "../Footer";
 import PageNav from "../PageNav";
 
-const tempMatchValue = [
-  {
-    homeTeamName: "null",
-    homeTeamCrest: "null",
-    homeTeamAbv: "null",
-    awayTeamName: "null",
-    awayTeamCrest: "null",
-    awayTeamAbv: "null",
-    scheduledDate: "MM/DD",
-    scheduledTime: "00:00 AM",
-  },
-];
-
-const tempStandingsValue = [
-  {
-    position: -1,
-    playedGames: -1,
-    points: -1,
-    goalDifference: -1,
-    crest: "NAN",
-    teamAbv: "NAN",
-  },
-];
-
 const links = [
   { name: "news", linkId: "news" },
   { name: "about", linkId: "about" },
@@ -48,22 +25,30 @@ const PremierLeaguePage = () => {
     useState(tempStandingsValue);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     getPremMatches()
       .then((data) => {
-        setPremMatchesData(data.matches);
+        if (data.matches.length == 0) {
+          setPremMatchesData(tempMatchValue);
+        } else setPremMatchesData(data.matches);
       })
-      .catch((error) => {
-        error.response.data.matches;
+      .catch(() => {
+        setPremMatchesData(tempMatchValue);
       });
   }, []);
 
   useEffect(() => {
     getPremStandings()
       .then((data) => {
-        setPremStandingsData(data.standings);
+        if (data.standings.length === 0) {
+          setPremStandingsData(tempStandingsValue);
+        } else setPremStandingsData(data.standings);
       })
-      .catch((error) => {
-        error.response.data.standings;
+      .catch(() => {
+        setPremStandingsData(tempStandingsValue);
       });
   }, []);
 
