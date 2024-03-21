@@ -69,6 +69,7 @@ const PageNav: React.FC<incomingProps> = (props: incomingProps) => {
           </li>
         ))}
       </ul>
+      {isScrolled ? <></> : <></>}
     </nav>
   );
 };
