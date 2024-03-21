@@ -18,7 +18,7 @@ const ChampionsLeagueBanner = () => {
               (index % 2 === 0 ? " bg-slate-400" : " bg-[#a7bed9]")
             }
           >
-            <div className="h-inherit w-[40%] ml-2 mr-4 ">
+            <div className="h-inherit w-[40%] ml-2 mr-4">
               <img src={element.image} alt="" className="py-2" />
             </div>
             <div className="md:font-bold md:text-lg 2xl:text-xl lg:text-[12px] text-md w-[60%] pr-2 lg:leading-3">
