@@ -27,6 +27,7 @@ app.http("httpTriggerGetChampGoals", {
           assists: element.assists == null ? 0 : element.assists,
         });
       });
+
       return {
         body: JSON.stringify(topScorers),
         status: 200,

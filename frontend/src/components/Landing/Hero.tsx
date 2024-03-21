@@ -6,10 +6,8 @@ const Hero = () => {
       <div className="flex flex-col lg:w-[30%] w-full text-white pr-6 justify-center">
         <h1 className="text-5xl pb-10">Welcome to Footy!</h1>
         <p className="lg:pb-0 pb-10">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
-          repudiandae, qui illo eius culpa perferendis aliquid enim delectus
-          autem cupiditate voluptatibus exercitationem aspernatur suscipit,
-          consectetur, tempore nulla illum rem saepe!
+          The ultimate website to follow and track Champions League and Premier
+          League matches!
         </p>
       </div>
       <div className="lg:w-[70%] w-full text-gray-500 text-[12px]">

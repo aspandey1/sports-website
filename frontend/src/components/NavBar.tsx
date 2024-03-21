@@ -2,7 +2,8 @@ import { useState } from "react";
 import { GiSoccerBall } from "react-icons/gi";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../index.css";
 
 interface NavInterface {
   name: string;
@@ -11,8 +12,7 @@ interface NavInterface {
 
 const NavLinks: Array<NavInterface> = [
   { name: "Champions League", link: "/championsleague" },
-  { name: "Premier League", link: "/coaches" },
-  { name: "Bundesliga", link: "/teams" },
+  { name: "Premier League", link: "/premierleague" },
 ];
 
 const NavBar = () => {
@@ -33,9 +33,9 @@ const NavBar = () => {
   return (
     <header className="bg-neutral-800 items-center py-2">
       <nav className="flex justify-between items-center md:px-[6rem] px-[2rem]">
-        <Link to={"/"} className="z-50 bg-neutral-800 py-4">
+        <NavLink to={"/"} className="z-50 bg-neutral-800 py-4">
           <GiSoccerBall color="lightgrey" className="w-16 h-16" />
-        </Link>
+        </NavLink>
         <div
           className={`md:static absolute bg-neutral-800 w-full md:min-h-fit min-h-[60vh] md:w-auto left-0 flex 
           md:justify-between items-center md:translate-y-[0%] md:px-0 px-10 ${navAnimation} 
@@ -43,13 +43,22 @@ const NavBar = () => {
         >
           <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vh] gap-[6vh]">
             {NavLinks.map((link) => (
-              <li key={link.name}>
-                <Link
+              <li
+                key={link.name}
+                className="hover:scale-[110%] ease-in duration-300"
+              >
+                <NavLink
                   to={link.link}
+                  id="sidebar"
+                  style={({ isActive }) => {
+                    return {
+                      color: isActive ? "#7393B3" : "",
+                    };
+                  }}
                   className="uppercase whitespace-nowrap font-bold text-lg text-gray-300"
                 >
                   {link.name}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
