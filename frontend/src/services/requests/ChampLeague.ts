@@ -2,9 +2,12 @@ import axios from "axios";
 
 export async function getChampLeagueData() {
   let local = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const response = await axios.get("", {
-    params: { local },
-  });
+  const response = await axios.get(
+    "https://sports-website-backend.azurewebsites.net/api/httpTriggerGetChampMatches?",
+    {
+      params: { local },
+    }
+  );
   return response.data;
 }
 

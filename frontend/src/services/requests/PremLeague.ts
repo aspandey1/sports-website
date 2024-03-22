@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getPremMatches() {
   let local = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const response = await axios.get(
-    "http://localhost:7071/api/httpTriggerGetPremMatches",
+    "https://sports-website-backend.azurewebsites.net/api/httpTriggerGetPremMatches?",
     {
       params: { local },
     }
@@ -13,7 +13,7 @@ export async function getPremMatches() {
 
 export async function getPremStandings() {
   const response = await axios.get(
-    "http://localhost:7071/api/httpTriggerGetPremStandings"
+    "https://sports-website-backend.azurewebsites.net/api/httpTriggerGetPremStandings?"
   );
   return response.data;
 }
