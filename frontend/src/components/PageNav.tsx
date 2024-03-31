@@ -16,7 +16,7 @@ const PageNav: React.FC<incomingProps> = (props: incomingProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const marginTop = 68;
+      const marginTop = 56;
       const scrollToY =
         element.getBoundingClientRect().top + window.scrollY - marginTop;
       window.scrollTo({ top: scrollToY, behavior: "smooth" });

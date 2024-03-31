@@ -100,7 +100,7 @@ const PremierLeagueHistoricalData = () => {
         <div className="font-bold md:py-0 py-5">
           Total Goals Scored by Premier League Teams
         </div>
-        <div className="flex md:justify-center pt-2 overflow-auto">
+        <div className="flex md:justify-center pt-2 overflow-auto no-scrollbar">
           {seasons.map((element, index) => (
             <button
               key={index}

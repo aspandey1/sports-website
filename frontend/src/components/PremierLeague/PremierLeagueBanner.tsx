@@ -58,13 +58,13 @@ const PremierLeagueBanner: React.FC<incomingData> = (props: incomingData) => {
                   />
                   <div>{element.teamAbv}</div>
                 </div>
-                <div className="text-right w-[25%] pr-2 2xl:text-xl lg:text-md text-sm">
+                <div className="text-right w-[25%] md:pr-2 pr-3 2xl:text-xl lg:text-md text-sm">
                   {element.playedGames}
                 </div>
-                <div className="text-right w-[25%] pr-3 2xl:text-xl lg:text-md text-sm">
+                <div className="text-right w-[25%] md:pr-3 pr-5 2xl:text-xl lg:text-md text-sm">
                   {element.goalDifference}
                 </div>
-                <div className="text-right w-[25%] font-black pr-4 2xl:text-xl lg:text-md text-sm">
+                <div className="text-right w-[25%] font-black md:pr-4 pr-6 2xl:text-xl lg:text-md text-sm">
                   {element.points}
                 </div>
               </div>
