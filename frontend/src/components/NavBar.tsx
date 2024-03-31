@@ -31,10 +31,13 @@ const NavBar = () => {
   };
 
   return (
-    <header className="bg-neutral-800 items-center py-2">
+    <header className="bg-neutral-800 items-center py-1">
       <nav className="flex justify-between items-center md:px-[6rem] px-[2rem]">
         <NavLink to={"/"} className="z-50 bg-neutral-800 py-4">
-          <GiSoccerBall color="lightgrey" className="w-16 h-16" />
+          <GiSoccerBall
+            color="lightgrey"
+            className="md:w-16 md:h-16 w-12 h-12"
+          />
         </NavLink>
         <div
           className={`md:static absolute bg-neutral-800 w-full md:min-h-fit min-h-[60vh] md:w-auto left-0 flex 
@@ -66,14 +69,14 @@ const NavBar = () => {
         <div className="md:hidden block z-50">
           {navOpen ? (
             <IoCloseSharp
-              size={50}
+              size={45}
               color="lightgrey"
               className="cursor-pointer"
               onClick={toggleNav}
             />
           ) : (
             <IoMenuSharp
-              size={50}
+              size={45}
               color="lightgrey"
               className="cursor-pointer"
               onClick={toggleNav}

@@ -53,14 +53,14 @@ const PageNav: React.FC<incomingProps> = (props: incomingProps) => {
   }, []);
 
   return (
-    <nav className="flex sticky top-0 px-[2rem] lg:px-[6rem] justify-center text-lg font-bold text-gray-300 py-4 bg-neutral-700 z-[10]">
-      <ul className="flex gap-2">
+    <nav className="flex sticky top-0 px-[2rem] lg:px-[6rem] justify-center md:text-lg text-sm font-bold text-gray-300 py-3 bg-neutral-700 z-[10]">
+      <ul className="flex gap-1">
         {props.links.map((element) => (
           <li
             key={element.name}
             className={
               activeLink === element.name
-                ? "text-black bg-gray-300 rounded uppercase py-1 px-3 hover:cursor-pointer"
+                ? "text-black bg-gray-300 rounded uppercase py-1 px-2 hover:cursor-pointer"
                 : "text-gray-300 uppercase py-1 px-3 hover:cursor-pointer hover:bg-neutral-500 rounded"
             }
             onClick={() => scrollToSection(element.linkId)}

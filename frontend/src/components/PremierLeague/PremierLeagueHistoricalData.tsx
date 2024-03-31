@@ -48,7 +48,6 @@ const PremierLeagueHistoricalData = () => {
   }, []);
 
   const updateSeason = (index: number) => {
-    console.log(index);
     switch (index) {
       case 0:
         setData(twoThousandEightSeason);
@@ -98,10 +97,10 @@ const PremierLeagueHistoricalData = () => {
       </div>
 
       <div className="flex flex-col text-xl text-center uppercase">
-        <div className="font-bold">
+        <div className="font-bold md:py-0 py-5">
           Total Goals Scored by Premier League Teams
         </div>
-        <div className="flex justify-center pt-2  overflow-auto">
+        <div className="flex md:justify-center pt-2 overflow-auto">
           {seasons.map((element, index) => (
             <button
               key={index}
